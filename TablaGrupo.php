@@ -39,7 +39,6 @@ if (isset($_SESSION["user"])) {
 			<a class="btn btn-primary" href="SesionMaestro.php">Regresar</a>
 		</div>
 	</nav>
-
 	<!--Tabla de grupos y alumnos-->
 	<!--Aqui se crea la conexion con la base datos-->
 <?php 
@@ -61,7 +60,6 @@ if (isset($_SESSION["user"])) {
 	<table border="1" >
 		<tr>
 			<td>idGrupo</td>
-			<td>clave</td>
 			<td>nivel</td>
 			<td>Teacher_idTeacher</td>
 			<td>Ver Grupo</td>
@@ -71,6 +69,7 @@ if (isset($_SESSION["user"])) {
 		<!--Se seleccionan los datos de la tabla grupos-->
 		<?php 
 		$sql="SELECT * from grupo";
+		$sqli="SELECT Grupo_idGrupoG * from alumnos";
 		$result=mysqli_query($conexion,$sql);
 
 		#Mientras mostrar sea igual a la fila que se obtuvo mediante el query de result
@@ -80,7 +79,6 @@ if (isset($_SESSION["user"])) {
 
 		<tr>
 			<td><?php echo $mostrar['idGrupo'] ?></td>
-			<td><?php echo $mostrar['clave'] ?></td>
 			<td><?php echo $mostrar['nivel'] ?></td>
 			<td><?php echo $mostrar['Teacher_idTeacher'] ?></td>
 			<td><a class="btn btn-primary" href="tablaAlumnos.php">Ver Grupo</a></td>
@@ -89,10 +87,6 @@ if (isset($_SESSION["user"])) {
 	}
 	 ?>
 	</table>
-
-</body>
-</html>
-
 	<!-- Footer -->
 	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 	<footer class="footer bg-light">

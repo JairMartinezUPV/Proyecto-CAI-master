@@ -4,8 +4,8 @@ $username = "root";
 $password = "";
 $dbname = "mydb";
 
-echo $_POST["id"];
 echo $_POST["name"];
+echo $_POST["id"];
 echo $_POST["email"];
 echo $_POST["carreer"];
 echo $_POST["group"];   

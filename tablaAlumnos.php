@@ -29,7 +29,9 @@
 		$result=mysqli_query($conexion,$sql);
 
 		while($mostrar=mysqli_fetch_array($result)){
+			
 		 ?>
+
 		<tr>
 			<td><?php echo $mostrar['idAlumnos'] ?></td>
 			<td><?php echo $mostrar['nombre'] ?></td>
