@@ -17,37 +17,31 @@
 			</a>
 			<a href="#" data-target="mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 			<ul class="right hide-on-med-and-down">
-				<li><a href="loginMaestro.html" class="black-text" title="Log In"><i class="material-icons right">account_circle</i>Log In</a></li>
+				<li><a href="loginAdmin.html" class="black-text" title="Log In"><i class="material-icons right">supervisor_account</i>Admin</a></li>
 			</ul>
 		</div>
 	</nav>
 
 	<ul class="sidenav" id="mobile">
-		<li><a href="loginMaestro.html" class="black-text" title="Log In"><i class="material-icons right">account_circle</i>Log In</a></li>
+		<li><a href="loginAdmin.html" class="black-text" title="Log In"><i class="material-icons right">supervisor_account</i>Admin</a></li>
 	</ul>
-
 	<!--Form-->
 	<br><br><br><br>
-	<header class="container col s12 m8 l6 offset-l3 offset-m2">
+	<header  class="container col s12 m8 l6 offset-l3 offset-m2">
 		<div class="row ">
 			<div class="container col s12 m8 l6 offset-l3 offset-m2">
 				<div class="card grey lighten-2">
 					<div class="card-content black-text">
-						<span class="card-title center">Welcome to the CAI!</span>
-						<form method="post" action="visita.php">
+						<span class="card-title center">Welcome teacher, please log in</span>
+						<form method="post" action="loginMaestro.php">
 							<div class="row">
 								<div class="input-field col s12 m12 l12">
-									<input placeholder="Enter your ID" id="first_name" required type="text" class="validate" name="id">
-									<label for="first_name">ID</label>
+									<input placeholder="Enter your Username" id="first_name" required type="text" class="validate" name="user">
+									<label for="first_name">Username</label>
 								</div>
 								<div class="input-field col s12 m12 l12">
-									<select name="activity">
-										<option value="" disabled selected>Select your activity</option>
-										<option value="Reading">Reading</option>
-										<option value="Writing">Writing</option>
-										<option value="Listening">Listening</option>
-									</select>
-									<label>SELECT YOUR ACTIVITY</label>
+									<input placeholder="Enter your password" id="first_name" required type="password" class="validate" name="pwd">
+									<label for="first_name">Password</label>
 								</div>
 								<div class="center">
 									<button class="btn waves-effect waves-light grey" type="submit" name="submit" title="Submit">Submit
@@ -80,5 +74,6 @@
 	<script type="text/javascript" src = "./assets/jquery/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="./assets/js/bin/materialize.min.js"></script>
 	<script type="text/javascript" src="./assets/jquery/plugins.js"></script>
+
 </body>
 </html>

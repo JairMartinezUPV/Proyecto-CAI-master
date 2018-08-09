@@ -1,4 +1,19 @@
-	<!DOCTYPE html>
+<?php
+if(!isset($_POST["id"]))exit();
+$id = $_POST["id"];
+include_once "conn.php";
+$sentencia = $conn->prepare("SELECT * FROM teacher WHERE idTeacher = ?;");
+$sentencia->execute([$id]);
+$teacher = $sentencia->fetch(PDO::FETCH_OBJ);
+if($teacher == FALSE){
+    echo "No existe ninguna persona con ese id";
+    exit();
+}
+
+?>
+
+
+<!DOCTYPE html>
 	<html>
 	<head>
 		<!--Import Google Icon Font-->
@@ -9,7 +24,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	</head>
 	<!-- Navigation -->
-	<img id="estirada" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="./assets/img/statua.jpg" />
 	<nav>
 		<div class="nav-wrapper grey lighten-2">
 			<a href="index.html" class="brand-logo center" title="Universidad Politecnica de Victoria">
@@ -17,13 +31,13 @@
 			</a>
 			<a href="#" data-target="mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 			<ul class="right hide-on-med-and-down">
-				<li><a href="loginMaestro.html" class="black-text" title="Log In"><i class="material-icons right">account_circle</i>Log In</a></li>
+				<li><a href="sesionAdmin.php" class="black-text" title="Log In"><i class="material-icons right">account_circle</i>Back</a></li>
 			</ul>
 		</div>
 	</nav>
 
 	<ul class="sidenav" id="mobile">
-		<li><a href="loginMaestro.html" class="black-text" title="Log In"><i class="material-icons right">account_circle</i>Log In</a></li>
+		<li><a href="sesionAdmin.php" class="black-text" title="Log In"><i class="material-icons right">account_circle</i>Back</a></li>
 	</ul>
 
 	<!--Form-->
@@ -33,21 +47,18 @@
 			<div class="container col s12 m8 l6 offset-l3 offset-m2">
 				<div class="card grey lighten-2">
 					<div class="card-content black-text">
-						<span class="card-title center">Welcome to the CAI!</span>
-						<form method="post" action="visita.php">
+						<span class="card-title center">Register a new teacher</span>
+						<form method="post" action="teacherUp.php">
+                            <input type="hidden" class="form-control" name="idTeacher" value="<?php echo $teacher->idTeacher?>">
 							<div class="row">
 								<div class="input-field col s12 m12 l12">
-									<input placeholder="Enter your ID" id="first_name" required type="text" class="validate" name="id">
-									<label for="first_name">ID</label>
-								</div>
+                                    Username:
+									<input placeholder="Enter the teacher Username" id="user" required type="text" class="validate" name="user" value="<?php echo $teacher->nombre?>">
+                                </div>
+                                
 								<div class="input-field col s12 m12 l12">
-									<select name="activity">
-										<option value="" disabled selected>Select your activity</option>
-										<option value="Reading">Reading</option>
-										<option value="Writing">Writing</option>
-										<option value="Listening">Listening</option>
-									</select>
-									<label>SELECT YOUR ACTIVITY</label>
+                                    Password:
+									<input placeholder="Enter the teacher Password" id="pwd" required type="text" class="validate" name="pwd" value="<?php echo $teacher->contrasena?>">
 								</div>
 								<div class="center">
 									<button class="btn waves-effect waves-light grey" type="submit" name="submit" title="Submit">Submit
@@ -61,7 +72,7 @@
 			</div>
 		</div>
 	</header>
-	<!--Footer-->
+	<!--Footer
 	<footer class="page-footer grey lighten-2" style="position: absolute; right:  0; left: 0; bottom: 0;">
 		<div class="container">
 			<div class="row">
@@ -75,7 +86,7 @@
 			</div>
 		</div>
 	</footer>
-
+-->
 	<!--JavaScript at end of body for optimized loading-->
 	<script type="text/javascript" src = "./assets/jquery/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="./assets/js/bin/materialize.min.js"></script>

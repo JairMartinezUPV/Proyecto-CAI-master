@@ -10,8 +10,6 @@ try {
     }
 catch(PDOException $e)
     {
-    echo $sql . "<br>" . $e->getMessage();
+    echo 'Error: ' . $e->getMessage();
     }
-
-$conn = null;
 ?>

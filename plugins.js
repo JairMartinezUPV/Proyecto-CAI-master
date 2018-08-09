@@ -1,0 +1,12 @@
+ //Select
+ $(document).ready(function(){
+ 	$('select').formSelect();
+ });
+ //Sidenav
+ $(document).ready(function(){
+ 	$('.sidenav').sidenav();
+ }); 
+ //Modales
+  $(document).ready(function(){
+    $('.modal').modal();
+  });
